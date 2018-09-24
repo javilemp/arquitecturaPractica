@@ -3,9 +3,13 @@ class PostsController < ApplicationController
 		@posts = Post.all
 	end
 
-
 	def show
-	end
+		@post = Post.find(params[:id])
+
+		respond_to do |format|
+		format.html  # show.html.erb
+		format.json  { render :json => @post }
+  	end
 
 	def new
 		@post = Post.new
@@ -37,5 +41,4 @@ class PostsController < ApplicationController
 	def post_params
       params.require(:post).permit(:title, :content, :user_id)
     end
-
 end
