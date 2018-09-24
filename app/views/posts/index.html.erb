@@ -1,0 +1,6 @@
+<h1>Listado de posts</h1>
+  <ul>
+     <% @posts.each do |p| %>
+       <li><%= p.title %>, <%= p.date %></li>
+     <% end %>
+</ul>
